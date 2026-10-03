@@ -28,6 +28,12 @@ web_app = Flask("OussaWebKeepAlive")
 def index():
     return "OussaWeb Bot is alive and running!", 200
 
+# --- إضافة المسار الخفيف لـ cron-job.org لتجنب خطأ Output Too Large ---
+@web_app.route("/ping")
+def ping_endpoint():
+    return "OK", 200
+# -----------------------------------------------------------------
+
 def run_web():
     web_app.run(host="0.0.0.0", port=PORT)
 
